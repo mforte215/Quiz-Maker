@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content%}
+<div class="quiz-main-content">
+<div class="score-container">
+<h1>YOU GOT A SCORE OF {{score}}%</h1>
+<h2>Enter name to record score:</h2>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="username" />
+    <input type="submit" value="RECORD" class="submit-user-btn" />
+</form>
+</div>
+</div>
+{% endblock %}

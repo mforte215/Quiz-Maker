@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content%}
+<div class="index-main-content">
+    <h2>Please report any and all concerns or questions you may have. Please report a problem ASAP</h2>
+    <div class="search-form-container">
+    <form method="post">
+        {% csrf_token %}
+        <input class="search-box" type="text" name="search-value" />
+        <div class="search-submit">
+        <input value="REPORT" type="submit" />
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock %}

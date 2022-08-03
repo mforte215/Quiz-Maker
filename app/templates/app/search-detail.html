@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content%}
+<div class="index-main-content">
+    <h2>Search</h2>
+    <div class="search-form-container">
+    <form method="post">
+        {% csrf_token %}
+        <input class="search-box" type="text" name="search-value" />
+        <div class="search-submit">
+        <input value="SEARCH" type="submit" />
+        </div>
+    </form>
+    </div>
+    {% if matched_quizzes %}
+    {% for quiz in matched_quizzes %}
+    <a class="index-card-link" href="{% url 'quiz-detail' quiz.slug %}">
+        <div class="index-card">
+        <div class="index-card-text-area">
+        <p class="quiz-text">{{quiz.title}}</p>
+        <p class="teaser-text">{{quiz.teaser_text}}</p>
+        </div>
+        </div>
+        </a>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content%}
+<div class="index-main-content">
+<div><h1>Latest Quizzes</h1></div>
+{% for quiz in quizzes %}
+<a class="index-card-link" href="{% url 'quiz-detail' quiz.slug %}">
+<div class="index-card">
+<div class="index-card-text-area">
+<p class="quiz-text">{{quiz.title}}</p>
+<p class="teaser-text">{{quiz.teaser_text}}</p>
+</div>
+</div>
+</a>
+{% endfor %}
+</div>
+{% endblock %}

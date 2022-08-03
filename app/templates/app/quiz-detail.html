@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content%}
+<div class="quiz-main-content">
+<div class="header-title-container">
+<h1>{{quiz.title}}</h1>
+</div>
+<div class="article-content-body-container">
+    <form method="post">
+        {% csrf_token %}
+
+    {% for question in questions %}
+    <div class="question-container">
+    <p>{{ question.question_text }}</p>
+        {% for choice in question.choices.all %}
+        <p><span><input required="true" name="{{question.question_text}}" value="{{choice.choice_text}}" type="radio"/> <label for="{{choice.choice_text}}">{{choice.choice_text}}</label></span</p>
+        {% endfor %}
+        </div>
+    {% endfor %}
+    <br /><br /><input class="quiz-submit-button" value="SUBMIT" type="submit" />
+        </form>
+</div>
+</div>
+{% endblock %}

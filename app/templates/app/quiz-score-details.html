@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content%}
+<div class="quiz-main-content">
+<div class="score-container-two">
+<h1>High Scores</h1>
+{% if quiz_scores %}
+<table class="quiz-table">
+    <tr>
+        <th>Player</th>
+        <th>Score</th>
+        <th>Date</th>
+    </tr>
+{% for score_record in quiz_scores %}
+<tr>
+    <td>{{score_record.user_name}}</td>
+    <td>{{score_record.score}}</td>
+    <td>8/3/2022</td>
+  </tr>
+{% endfor %}
+</table>
+{% endif %}
+</div>
+</div>
+{% endblock %}
